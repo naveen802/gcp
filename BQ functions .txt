@@ -1,0 +1,74 @@
+Big Query Functions :
+
+1. Cast : convert one data type to another type 
+
+Syntax :  cast( column_name as datatype ) as columnname 
+ 
+example : cast ( id as INT64 ) as id 
+
+2. Safe_cast : 
+
+example  : safe_cast( id as INT64 ) as id 
+
+safe_cast will allow user to igonre non covertable values and assign NULL for them
+
+3. Date cast : 
+
+current_date() 
+
+Date_add(date "2008-12-03", INTERVAL 5 DAY ) as 5_days_after 
+
+Date_sub(date "2008-12-03", INTERVAL 5 DAY ) as 5_days_later
+
+date_diff( date "2010-12-07", DATE "2022-05-17", DAY ) as Days_diff 
+
+format_date( "%x", DATE "2018-11-23") as INDIA_format 
+
+last_date( DATE '2008-11-25', MONTH ) as last_day_11_month  
+
+
+example : 01-12-2022 
+
+cast ( DOJ as date format('dd-mm-yyyy')) 
+
+parse_date( '%d-%m-%Y', DOJ ) ----- [ DOJ should be string datatype before converting ]
+
+How to get date from timestamp () 
+
+example : Date( timestamp_col_name ) 
+
+TIME FUNCTIONS : 
+----------------------------
+
+4. TIME "14:30:00
+
+TIME_ADD( TIME "14:30:00" , INTERVAL 10 MINUTE ) AS 10MIN_Later 
+TIME_SUB( TIME "14:30:00" , INTERVAL 10 MINUTE ) AS 10MIN_before 
+
+FORMAT_TIME( "%R", TIME "14:40:01" ) as Formated_time 
+
+How to parse 12 hr time to 24 hr format ? 
+parse_time ( '%I:%M:%S %p', '2:21:12 pm' ) 
+
+5. STRING Functions : 
+
+CONCAT( "col", " " "col" ) as col_name 
+
+FROM_BASE32 ( col ) -----> col should be string type 
+TO_BASE32(string col) 
+
+FROM_BASE64( String ) 
+TO_BASE64(string ) 
+
+LTRIM ---->  
+
+RTRIM ----> 
+
+TRIM 
+
+LPAD--> 
+
+RPAD ---> 
+
+UPPER( String ) 
+LOWER ( String ) 
